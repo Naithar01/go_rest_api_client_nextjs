@@ -1,12 +1,39 @@
-import type { NextPage } from "next";
+import { GetServerSideProps } from "next";
 import styled from "styled-components";
+import CategoryList from "../components/Category/CategoryList";
+import { Category_body } from "../components/Category/styled/Category-styled";
+import { Container_body } from "../components/Layouts/styled/Container";
+import { PageHeader } from "../components/Layouts/styled/PageContent";
 
-const HelloWorld = styled.div`
-  margin: 10px;
-`;
+import { GetAllCategoryList, ResponseCategory } from "../Lib/Category";
 
-const Home: NextPage = () => {
-  return <HelloWorld></HelloWorld>;
+type Props = {
+  categorys: ResponseCategory[];
 };
 
-export default Home;
+const MainPage = ({ categorys }: Props) => {
+  return (
+    <Container_body>
+      <PageHeader>Post Category</PageHeader>
+      {categorys.map((category) => (
+        <Category_body key={category.id}>
+          <CategoryList category={category} />
+        </Category_body>
+      ))}
+    </Container_body>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = async (ctx) => {
+  const res = await GetAllCategoryList();
+
+  const categorys = await res.json();
+
+  return {
+    props: {
+      categorys,
+    },
+  };
+};
+
+export default MainPage;
