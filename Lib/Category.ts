@@ -2,7 +2,7 @@ export type ResponseCategory = {
   id: number;
   title: string;
   posts: number;
-  CreatedAt: Date | string;
+  CreatedAt: string;
 };
 
 export const GetAllCategoryList = async () => {

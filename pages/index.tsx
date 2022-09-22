@@ -1,5 +1,4 @@
 import { GetServerSideProps } from "next";
-import styled from "styled-components";
 import CategoryList from "../components/Category/CategoryList";
 import { Category_body } from "../components/Category/styled/Category-styled";
 import { Container_body } from "../components/Layouts/styled/Container";
