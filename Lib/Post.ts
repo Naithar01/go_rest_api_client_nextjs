@@ -25,3 +25,12 @@ export const GetAllPostListNoCategoryQuery = async () => {
     method: "GET",
   });
 };
+
+export const GetPostById = async (id: number | string) => {
+  return await fetch(`http://localhost:4000/api/post/${id}`, {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "GET",
+  });
+};

@@ -35,3 +35,19 @@ export const Post_Back_Category_list = styled.a`
   cursor: pointer;
   margin-bottom: 10px;
 `;
+
+export const Read_Post_header = styled.h1`
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 10px;
+`;
+
+export const Read_Post_createAt = styled.p`
+  display: block;
+  font-size: 15px;
+  margin-top: 5px;
+`;
+
+export const Read_Post_tags = styled.div`
+  font-size: 15px;
+`;

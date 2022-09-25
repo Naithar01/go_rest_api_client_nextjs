@@ -20,7 +20,7 @@ const PostList = ({ post }: Props) => {
   return (
     <Post_body>
       <Post_header>
-        <Link href={`/`}>
+        <Link href={`/post/${post.id}`}>
           <Post_a_tag>{post.content}</Post_a_tag>
         </Link>
       </Post_header>
