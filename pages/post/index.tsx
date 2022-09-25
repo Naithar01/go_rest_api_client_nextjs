@@ -1,8 +1,12 @@
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import { Container_body } from "../../components/Layouts/styled/Container";
 import { PageHeader } from "../../components/Layouts/styled/PageContent";
 import PostList from "../../components/Post/PostList";
-import { Post_body } from "../../components/Post/styled/Post-styled";
+import {
+  Post_Back_Category_list,
+  Post_body,
+} from "../../components/Post/styled/Post-styled";
 import {
   GetAllPostList,
   GetAllPostListNoCategoryQuery,
@@ -17,11 +21,11 @@ const MainPage = ({ posts }: Props) => {
   return (
     <Container_body>
       <PageHeader>Posts</PageHeader>
-
+      <Link href="/">
+        <Post_Back_Category_list>Category List</Post_Back_Category_list>
+      </Link>
       {posts.map((post) => (
-        <Post_body key={post.id}>
-          <PostList post={post} />
-        </Post_body>
+        <PostList key={post.id} post={post} />
       ))}
     </Container_body>
   );

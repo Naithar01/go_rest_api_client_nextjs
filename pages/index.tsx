@@ -14,6 +14,7 @@ const MainPage = ({ categorys }: Props) => {
   return (
     <Container_body>
       <PageHeader>Post Category</PageHeader>
+      
       {categorys.map((category) => (
         <Category_body key={category.id}>
           <CategoryList category={category} />

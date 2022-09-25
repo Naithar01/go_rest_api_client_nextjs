@@ -28,3 +28,10 @@ export const Post_Tag_body = styled.strong`
   margin-right: 5px;
   font-weight: 600;
 `;
+
+export const Post_Back_Category_list = styled.a`
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
+`;

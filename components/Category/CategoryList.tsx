@@ -16,7 +16,7 @@ const CategoryList = ({ category }: Props) => {
   return (
     <Fragment>
       <Category_header>
-        <Link href={"/"}>
+        <Link href={`/post?category_id=${category.id}`}>
           <Category_a_tag>{category.title}</Category_a_tag>
         </Link>
       </Category_header>

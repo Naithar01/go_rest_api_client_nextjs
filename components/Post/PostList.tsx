@@ -3,6 +3,7 @@ import { Fragment } from "react";
 import { ResponsePost } from "../../Lib/Post";
 import {
   Post_a_tag,
+  Post_body,
   Post_Content,
   Post_CreatedAt,
   Post_header,
@@ -17,7 +18,7 @@ const PostList = ({ post }: Props) => {
   const date = new Date(`${post.CreatedAt}`).toLocaleString();
 
   return (
-    <Fragment>
+    <Post_body>
       <Post_header>
         <Link href={`/`}>
           <Post_a_tag>{post.content}</Post_a_tag>
@@ -26,9 +27,14 @@ const PostList = ({ post }: Props) => {
       <Post_Content>
         <Post_CreatedAt>{date}</Post_CreatedAt>
         {post.tags &&
-          post.tags.map((tag) => <PostTags key={post.id} tag={tag} />)}
+          post.tags.map((tag) => (
+            <PostTags
+              key={new Date().getTime() + Math.random() * 11}
+              tag={tag}
+            />
+          ))}
       </Post_Content>
-    </Fragment>
+    </Post_body>
   );
 };
 
