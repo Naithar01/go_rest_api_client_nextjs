@@ -17,3 +17,9 @@
 ## Layout
 
 1. Header - ( Navbar )
+
+# Updated
+
+## Post
+
+1. Post - ( Commends )
