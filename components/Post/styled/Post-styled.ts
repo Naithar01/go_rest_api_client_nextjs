@@ -51,3 +51,13 @@ export const Read_Post_createAt = styled.p`
 export const Read_Post_tags = styled.div`
   font-size: 15px;
 `;
+
+export const Post_404_page = styled.div`
+  width: 100%;
+  height: 90vh;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
