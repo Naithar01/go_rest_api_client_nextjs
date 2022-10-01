@@ -1,6 +1,7 @@
 export type ResponsePost = {
   id: number;
   content: string;
+  category_id: number;
   tags: string[];
   CreatedAt: string;
 };
@@ -26,7 +27,7 @@ export const GetAllPostListNoCategoryQuery = async () => {
   });
 };
 
-export const GetPostById = async (id: number | string) => {
+export const GetPostById = async (id: string | string[] | undefined) => {
   return await fetch(`http://localhost:4000/api/post/${id}`, {
     headers: {
       "Content-Type": "application/json",

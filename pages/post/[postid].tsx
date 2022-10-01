@@ -1,5 +1,7 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { ParsedUrlQuery } from "querystring";
 import { Container_body } from "../../components/Layouts/styled/Container";
 import { PageHeader } from "../../components/Layouts/styled/PageContent";
 import {
@@ -11,7 +13,15 @@ import {
   Read_Post_tags,
 } from "../../components/Post/styled/Post-styled";
 import PostTags from "../../components/Post/tags/PostTags";
-import { GetAllPostList, GetPostById, ResponsePost } from "../../Lib/Post";
+import {
+  GetAllPostListNoCategoryQuery,
+  GetPostById,
+  ResponsePost,
+} from "../../Lib/Post";
+
+interface IParams extends ParsedUrlQuery {
+  id: string;
+}
 
 type ReadResponsePost = {
   id: number;
@@ -19,6 +29,9 @@ type ReadResponsePost = {
   category_id: number;
   category: {
     ID: number;
+    CreatedAt: string;
+    UpdatedAt: string;
+    DeletedAt: null;
     title: string;
   };
   tags: string[];
@@ -40,12 +53,14 @@ const ReadPost = ({ post }: Props) => {
         <Read_Post_createAt>
           {new Date(post.CreatedAt).toLocaleString()}
         </Read_Post_createAt>
-        <Read_Post_tags>
-          <Post_Tag_body>tags:</Post_Tag_body>
-          {post.tags.map((tag, i) => (
-            <PostTags key={tag.length + i} tag={tag} />
-          ))}
-        </Read_Post_tags>
+        {post.tags && (
+          <Read_Post_tags>
+            <Post_Tag_body>tags:</Post_Tag_body>
+            {post.tags.map((tag, i) => (
+              <PostTags key={tag.length + i} tag={tag} />
+            ))}
+          </Read_Post_tags>
+        )}
         <Read_Post_header>{post.content}</Read_Post_header>
       </Post_header>
     </Container_body>
@@ -53,32 +68,36 @@ const ReadPost = ({ post }: Props) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await GetAllPostList(0);
+  const res = await GetAllPostListNoCategoryQuery();
 
   const posts: ResponsePost[] = await res.json();
 
   const paths = posts.map((post) => ({
-    params: { id: post.id.toString() },
+    params: { postid: post.id.toString() },
   }));
 
   return {
     paths,
-    fallback: true,
+    fallback: false,
   };
 };
 
 export const getStaticProps: GetStaticProps = async (ctx) => {
-  const { id } = ctx.params as unknown as { id: string };
+  const { postid } = ctx.params as IParams;
 
-  const res = await GetPostById(id);
+  const res = await GetPostById(postid);
 
-  const post = await res.json();
+  const post: ReadResponsePost = await res.json();
+
+  if (!post) {
+    return { notFound: true };
+  }
 
   return {
     props: {
       post,
     },
-    revalidate: 1,
+    revalidate: 10,
   };
 };
 
