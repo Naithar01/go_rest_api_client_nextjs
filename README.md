@@ -17,3 +17,11 @@
 ## Layout
 
 1. Header - ( Navbar )
+
+# Updated
+
+1. Search Post by content(string) 
+
+## Post
+
+1. Post - ( Commends )
