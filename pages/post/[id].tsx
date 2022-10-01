@@ -42,8 +42,8 @@ const ReadPost = ({ post }: Props) => {
         </Read_Post_createAt>
         <Read_Post_tags>
           <Post_Tag_body>tags:</Post_Tag_body>
-          {post.tags.map((tag) => (
-            <PostTags key={Math.random() * 10001} tag={tag} />
+          {post.tags.map((tag, i) => (
+            <PostTags key={tag.length + i} tag={tag} />
           ))}
         </Read_Post_tags>
         <Read_Post_header>{post.content}</Read_Post_header>

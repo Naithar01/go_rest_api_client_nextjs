@@ -27,11 +27,8 @@ const PostList = ({ post }: Props) => {
       <Post_Content>
         <Post_CreatedAt>{date}</Post_CreatedAt>
         {post.tags &&
-          post.tags.map((tag) => (
-            <PostTags
-              key={new Date().getTime() + Math.random() * 11}
-              tag={tag}
-            />
+          post.tags.map((tag, i) => (
+            <PostTags key={tag.length + i} tag={tag} />
           ))}
       </Post_Content>
     </Post_body>
