@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Fragment } from "react";
 import { ResponsePost } from "../../Lib/Post";
 import {
   Post_a_tag,
@@ -28,7 +27,7 @@ const PostList = ({ post }: Props) => {
         <Post_CreatedAt>{date}</Post_CreatedAt>
         {post.tags &&
           post.tags.map((tag, i) => (
-            <PostTags key={tag.length + i} tag={tag} />
+            <PostTags key={tag.length + (i * tag.length + 2)} tag={tag} />
           ))}
       </Post_Content>
     </Post_body>

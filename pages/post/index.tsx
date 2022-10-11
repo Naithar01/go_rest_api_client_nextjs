@@ -18,6 +18,17 @@ type Props = {
 };
 
 const MainPage = ({ posts }: Props) => {
+  if (posts.length === 0) {
+    return (
+      <Container_body>
+        <PageHeader>Cant Find Post</PageHeader>
+        <Link href="/">
+          <Post_Back_Category_list>Category List</Post_Back_Category_list>
+        </Link>
+      </Container_body>
+    );
+  }
+
   return (
     <Container_body>
       <PageHeader>Posts</PageHeader>
