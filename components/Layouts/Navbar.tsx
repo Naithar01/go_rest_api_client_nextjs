@@ -14,7 +14,7 @@ const Navbar = () => {
           <Navbar_logo>Main</Navbar_logo>
         </Link>
       </Navbar_logo_wrap>
-      <Link href="/post">
+      <Link href="/post/search">
         <Navbar_a_tag>Search</Navbar_a_tag>
       </Link>
     </Navbar_wrap>
