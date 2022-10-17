@@ -4,7 +4,7 @@ import {
   Navbar_logo,
   Navbar_logo_wrap,
   Navbar_wrap,
-} from "./styled/Navbar";
+} from "./styled/Navbar.styled";
 
 const Navbar = () => {
   return (

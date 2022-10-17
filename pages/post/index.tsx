@@ -1,12 +1,12 @@
 import { GetServerSideProps } from "next";
 import Link from "next/link";
-import { Container_body } from "../../components/Layouts/styled/Container";
-import { PageHeader } from "../../components/Layouts/styled/PageContent";
+import { Container_body } from "../../components/Layouts/styled/Container.styled";
+import { PageHeader } from "../../components/Layouts/styled/PageContent.styled";
 import PostList from "../../components/Post/PostList";
 import {
   Post_Back_Category_list,
   Post_body,
-} from "../../components/Post/styled/Post-styled";
+} from "../../components/Post/styled/Post.styled";
 import {
   GetAllPostList,
   GetAllPostListNoCategoryQuery,

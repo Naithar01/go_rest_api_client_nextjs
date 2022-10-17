@@ -1,4 +1,4 @@
-import { Post_404_page } from "../styled/Post-styled";
+import { Post_404_page } from "../styled/Post.styled";
 
 const CustomPost404Page = () => {
   return (

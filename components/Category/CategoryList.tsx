@@ -6,7 +6,7 @@ import {
   Category_content,
   Category_header,
   Category_write_post,
-} from "./styled/Category-styled";
+} from "./styled/Category.styled";
 
 type Props = {
   category: ResponseCategory;

@@ -1,8 +1,8 @@
 import { GetServerSideProps } from "next";
 import CategoryList from "../components/Category/CategoryList";
-import { Category_body } from "../components/Category/styled/Category-styled";
-import { Container_body } from "../components/Layouts/styled/Container";
-import { PageHeader } from "../components/Layouts/styled/PageContent";
+import { Category_body } from "../components/Category/styled/Category.styled";
+import { Container_body } from "../components/Layouts/styled/Container.styled";
+import { PageHeader } from "../components/Layouts/styled/PageContent.styled";
 
 import { GetAllCategoryList, ResponseCategory } from "../Lib/Category";
 
@@ -14,7 +14,7 @@ const MainPage = ({ categorys }: Props) => {
   return (
     <Container_body>
       <PageHeader>Post Category</PageHeader>
-      
+
       {categorys.map((category) => (
         <Category_body key={category.id}>
           <CategoryList category={category} />

@@ -6,7 +6,7 @@ import {
   Post_Content,
   Post_CreatedAt,
   Post_header,
-} from "./styled/Post-styled";
+} from "./styled/Post.styled";
 import PostTags from "./tags/PostTags";
 
 type Props = {

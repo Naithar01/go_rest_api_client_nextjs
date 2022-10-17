@@ -1,5 +1,3 @@
-import { RefObject } from "react";
-
 type Props = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder: string;

@@ -1,8 +1,8 @@
 import { GetStaticPaths, GetStaticProps } from "next";
 import Link from "next/link";
 import { ParsedUrlQuery } from "querystring";
-import { Container_body } from "../../components/Layouts/styled/Container";
-import { PageHeader } from "../../components/Layouts/styled/PageContent";
+import { Container_body } from "../../components/Layouts/styled/Container.styled";
+import { PageHeader } from "../../components/Layouts/styled/PageContent.styled";
 import CustomPost404Page from "../../components/Post/404/post-404";
 import {
   Post_Back_Category_list,
@@ -11,7 +11,7 @@ import {
   Read_Post_createAt,
   Read_Post_header,
   Read_Post_tags,
-} from "../../components/Post/styled/Post-styled";
+} from "../../components/Post/styled/Post.styled";
 import PostTags from "../../components/Post/tags/PostTags";
 import {
   GetAllPostListNoCategoryQuery,

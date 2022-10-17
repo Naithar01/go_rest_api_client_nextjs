@@ -1,4 +1,4 @@
-import { Post_Tag_body } from "../styled/Post-styled";
+import { Post_Tag_body } from "../styled/Post.styled";
 
 type Props = {
   tag: string;
