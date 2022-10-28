@@ -35,3 +35,13 @@ export const GetPostById = async (id: string | string[] | undefined) => {
     method: "GET",
   });
 };
+
+export const SearchPostByContent = async (content: string | string[]) => {
+  return await fetch("http://localhost:4000/api/post/search/content", {
+    headers: {
+      "Content-Type": "application/json",
+    },
+    method: "POST",
+    body: JSON.stringify({ content }),
+  });
+};
