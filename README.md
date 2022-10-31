@@ -21,6 +21,7 @@
 # Updated
 
 1. Search Post by content(string) 
+1. 1 - 2 검색 완료된 데이터를 랜더링 해주는 코드 추가 
 
 ## Post
 
