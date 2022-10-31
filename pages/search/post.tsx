@@ -1,6 +1,9 @@
 import { GetServerSideProps } from "next";
+import Link from "next/link";
 import { Container_body } from "../../components/Layouts/styled/Container.styled";
 import { PageHeader } from "../../components/Layouts/styled/PageContent.styled";
+import PostList from "../../components/Post/PostList";
+import { Post_Back_Category_list } from "../../components/Post/styled/Post.styled";
 import { ResponsePost, SearchPostByContent } from "../../Lib/Post";
 
 type Props = {
@@ -13,6 +16,20 @@ const SearchPostDataPage = ({ posts, s_data }: Props) => {
     return (
       <Container_body>
         <PageHeader>검색어가 없습니다.</PageHeader>
+        <Link href="/post/search">
+          <Post_Back_Category_list>re-search</Post_Back_Category_list>
+        </Link>
+      </Container_body>
+    );
+  }
+
+  if (!posts.length) {
+    return (
+      <Container_body>
+        <PageHeader>검색 결과가 없습니다.</PageHeader>
+        <Link href="/post/search">
+          <Post_Back_Category_list>re-search</Post_Back_Category_list>
+        </Link>
       </Container_body>
     );
   }
@@ -22,8 +39,12 @@ const SearchPostDataPage = ({ posts, s_data }: Props) => {
       <PageHeader>
         <small>{s_data}</small>
       </PageHeader>
+      <Link href="/post/search">
+        <Post_Back_Category_list>re-search</Post_Back_Category_list>
+      </Link>
+
       {posts.map((post) => (
-        <p key={post.id}>{post.content}</p>
+        <PostList key={post.id} post={post} />
       ))}
     </Container_body>
   );
